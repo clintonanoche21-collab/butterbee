@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Butterbee Cookies | Order Now</title>
+<meta name="description" content="Butterbee cookies: Salted Brown Butter Chocolate Chip and White Pretzel Chocolate Chip. Packs of 2 cookies, ₱150. Order online!">
+<link rel="icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --pink: #D32B8D;
+    --pink-deep: #A41B6D;
+    --butter: #F9E08B;
+    --butter-soft: #FDF1B8;
+    --gold: #C99A0A;
+    --cream: #FFFBEA;
+    --ink: #5A0F3C;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--pink);
+    color: var(--cream);
+    font-family: "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
+    line-height: 1.55;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+
+  .wrap { max-width: 900px; margin: 0 auto; padding: 0 18px; }
+
+  /* ---------- Hero ---------- */
+  .hero { text-align: center; padding: 8px 0 28px; }
+  .hero-logo {
+    width: min(760px, 100%);
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    margin: 0 auto;
+  }
+  .tagline {
+    font-family: "Anton", Impact, sans-serif;
+    font-size: clamp(1.4rem, 4.5vw, 2.1rem);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--butter);
+    margin: 4px 0 6px;
+  }
+  .hero p { margin: 0 auto 18px; max-width: 520px; font-size: 1.05rem; }
+  .btn {
+    display: inline-block;
+    background: var(--butter);
+    color: var(--pink-deep);
+    border: 3px solid var(--gold);
+    border-radius: 999px;
+    padding: 12px 30px;
+    font-family: "Anton", Impact, sans-serif;
+    font-size: 1.25rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-decoration: none;
+    box-shadow: 0 5px 0 var(--gold);
+    transition: transform .12s, box-shadow .12s;
+  }
+  .btn:hover { transform: translateY(2px); box-shadow: 0 3px 0 var(--gold); }
+  .btn:active { transform: translateY(5px); box-shadow: 0 0 0 var(--gold); }
+
+  /* ---------- Sections ---------- */
+  section { padding: 34px 0; }
+  h2 {
+    font-family: "Anton", Impact, sans-serif;
+    font-weight: 400;
+    font-size: clamp(1.8rem, 6vw, 2.6rem);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--butter);
+    text-align: center;
+    margin: 0 0 6px;
+  }
+  .lead { text-align: center; margin: 0 auto 24px; max-width: 560px; }
+
+  .card {
+    background: var(--butter);
+    color: var(--ink);
+    border: 3px solid var(--gold);
+    border-radius: 18px;
+    box-shadow: 0 6px 0 rgba(0,0,0,.14);
+    overflow: hidden;
+  }
+  .card h3 {
+    font-family: "Anton", Impact, sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    color: var(--pink-deep);
+    margin: 0 0 6px;
+    font-size: 1.5rem;
+  }
+  .card p { margin: 0; }
+  .pad { padding: 18px 20px 22px; }
+
+  /* ---------- Flavors ---------- */
+  .grid2 { display: grid; gap: 22px; grid-template-columns: 1fr 1fr; }
+  .grid3 { display: grid; gap: 20px; grid-template-columns: repeat(3, 1fr); }
+  .photo.split img { width: 50%; }
+  .photo.split img:last-child { left: 50%; }
+  .photo {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    background: var(--butter-soft);
+    border-bottom: 3px solid var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 4rem;
+  }
+  .photo img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+  .price-tag {
+    display: inline-block;
+    margin-top: 10px;
+    background: var(--pink);
+    color: var(--butter);
+    border-radius: 999px;
+    padding: 3px 14px;
+    font-weight: 800;
+    font-size: .9rem;
+  }
+
+  /* ---------- Steps ---------- */
+  .steps { display: grid; gap: 16px; grid-template-columns: repeat(3, 1fr); }
+  .step { padding: 18px 16px; text-align: center; }
+  .step .n {
+    width: 42px; height: 42px; margin: 0 auto 8px;
+    border-radius: 50%;
+    background: var(--pink); color: var(--butter);
+    font-family: "Anton", Impact, sans-serif; font-size: 1.4rem;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .step h3 { font-size: 1.25rem; }
+  .note {
+    margin-top: 18px;
+    text-align: center;
+    font-weight: 800;
+    color: var(--butter);
+  }
+
+  /* ---------- Payment ---------- */
+  .qr {
+    position: relative;
+    width: 190px; height: 190px;
+    margin: 12px auto 0;
+    background: var(--cream);
+    border: 3px dashed var(--gold);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center; font-size: .85rem; font-weight: 800;
+    color: var(--pink-deep);
+  }
+  .qr img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; background: #fff; border-radius: 9px; }
+  .gcash-num {
+    font-family: "Anton", Impact, sans-serif;
+    font-size: 1.6rem; letter-spacing: .06em; color: var(--pink-deep);
+  }
+  .center { text-align: center; }
+
+  /* ---------- Form ---------- */
+  .form-card { padding: 10px; }
+  .form-card iframe {
+    width: 100%; height: 1150px; border: 0; border-radius: 12px; background: #fff;
+  }
+  .form-soon { padding: 34px 20px; text-align: center; }
+  .open-link { text-align: center; margin-top: 16px; font-weight: 700; }
+
+  footer { text-align: center; padding: 30px 18px 40px; color: var(--butter); font-weight: 700; }
+  footer small { display: block; margin-top: 4px; font-weight: 400; color: var(--cream); opacity: .85; }
+
+  /* ---------- Mobile ---------- */
+  @media (max-width: 640px) {
+    .grid2, .grid3 { grid-template-columns: 1fr; }
+    .steps { grid-template-columns: 1fr; }
+    .form-card iframe { height: 1300px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero wrap">
+  <img class="hero-logo" src="logo.png" alt="Butterbee logo">
+  <div class="tagline">Freshly baked cookies</div>
+  <p>A pack of 2 cookies for just <strong>₱150</strong>. Pick one flavor, or go mixed!</p>
+  <a class="btn" href="#order">Order Now</a>
+</header>
+
+<main>
+
+  <!-- FLAVORS -->
+  <section id="flavors">
+    <div class="wrap">
+      <h2>Order Options</h2>
+      <p class="lead">Every pack has 2 cookies for ₱150. Choose your pack, then pick how many.</p>
+      <div class="grid3">
+        <article class="card">
+          <div class="photo">🍪
+            <img data-srcs="salted-brown-butter.jpg,salted-brown-butter.jpeg,salted-brown-butter.png" alt="Salted Brown Butter Chocolate Chip cookies">
+          </div>
+          <div class="pad">
+            <h3>Salted Brown Butter Chocolate Chip</h3>
+            <p>Pack of 2 cookies. Nutty brown butter, chocolate chips, and a pinch of salt.</p>
+            <span class="price-tag">₱150 per pack</span>
+          </div>
+        </article>
+        <article class="card">
+          <div class="photo">🍪
+            <img data-srcs="white-pretzel.jpg,white-pretzel.jpeg,white-pretzel.png" alt="White Pretzel Chocolate Chip cookies">
+          </div>
+          <div class="pad">
+            <h3>White Pretzel Chocolate Chip</h3>
+            <p>Pack of 2 cookies. Sweet white chocolate and chips with a salty pretzel crunch.</p>
+            <span class="price-tag">₱150 per pack</span>
+          </div>
+        </article>
+        <article class="card">
+          <div class="photo split">🍪
+            <img data-srcs="salted-brown-butter.jpg,salted-brown-butter.jpeg,salted-brown-butter.png" alt="Salted Brown Butter Chocolate Chip cookie">
+            <img data-srcs="white-pretzel.jpg,white-pretzel.jpeg,white-pretzel.png" alt="White Pretzel Chocolate Chip cookie">
+          </div>
+          <div class="pad">
+            <h3>Mixed</h3>
+            <p>Pack of 2 cookies. One Salted Brown Butter and one White Pretzel, so you get both.</p>
+            <span class="price-tag">₱150 per pack</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how">
+    <div class="wrap">
+      <h2>How to Order</h2>
+      <p class="lead">1 pack = 2 cookies = ₱150</p>
+      <div class="steps">
+        <div class="card step">
+          <div class="n">1</div>
+          <h3>Fill the form</h3>
+          <p>Choose your order option and how many packs you want.</p>
+        </div>
+        <div class="card step">
+          <div class="n">2</div>
+          <h3>Pick payment</h3>
+          <p>Pay by GCash, or cash when your cookies are delivered.</p>
+        </div>
+        <div class="card step">
+          <div class="n">3</div>
+          <h3>Get your cookies</h3>
+          <p>We deliver on <strong>Sunday</strong> or <strong>Monday</strong>.</p>
+        </div>
+      </div>
+      <p class="note">🚚 Delivery days: Sunday or Monday</p>
+    </div>
+  </section>
+
+  <!-- PAYMENT -->
+  <section id="payment">
+    <div class="wrap">
+      <h2>Payment</h2>
+      <p class="lead">Two easy ways to pay.</p>
+      <div class="grid2">
+        <div class="card pad center">
+          <h3>GCash</h3>
+          <div class="gcash-num" id="gcashNumber">09XX XXX XXXX</div>
+          <p id="gcashName">Account name</p>
+          <div class="qr">
+            QR code coming soon
+            <img data-srcs="gcash-qr.png,gcash-qr.jpg,gcash-qr.jpeg" alt="Butterbee GCash QR code">
+          </div>
+        </div>
+        <div class="card pad center">
+          <h3>Cash</h3>
+          <p>Pay in cash when your order is delivered.</p>
+          <p style="font-size:3.4rem; margin-top:14px;">💵</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORDER FORM -->
+  <section id="order">
+    <div class="wrap">
+      <h2>Place Your Order</h2>
+      <p class="lead">Fill out the form below. You will see <strong>"Order Confirmed"</strong> once it is sent.</p>
+      <div class="card form-card" id="formCard"></div>
+      <p class="open-link" id="openLink" hidden>
+        Form not loading? <a id="openLinkA" href="#" target="_blank" rel="noopener">Open it in a new tab</a>
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  🍪 Butterbee 🍪
+  <small>Made with butter and love.</small>
+</footer>
+
+<script>
+  /* ============ EDIT THESE ============ */
+  const CONFIG = {
+    // Paste your Google Form embed link here. It ends with  /viewform?embedded=true
+    FORM_EMBED_URL: "",
+    GCASH_NUMBER: "09XX XXX XXXX",
+    GCASH_NAME: "Account name"
+  };
+  /* ==================================== */
+
+  // GCash details
+  document.getElementById("gcashNumber").textContent = CONFIG.GCASH_NUMBER;
+  document.getElementById("gcashName").textContent = CONFIG.GCASH_NAME;
+
+  // Order form
+  const formCard = document.getElementById("formCard");
+  if (CONFIG.FORM_EMBED_URL) {
+    const iframe = document.createElement("iframe");
+    iframe.src = CONFIG.FORM_EMBED_URL;
+    iframe.title = "Butterbee order form";
+    iframe.loading = "lazy";
+    iframe.textContent = "Loading…";
+    formCard.appendChild(iframe);
+    const link = document.getElementById("openLinkA");
+    link.href = CONFIG.FORM_EMBED_URL.replace("?embedded=true", "");
+    document.getElementById("openLink").hidden = false;
+  } else {
+    formCard.classList.add("form-soon");
+    formCard.style.color = "var(--ink)";
+    formCard.innerHTML = "<h3>Order form coming soon</h3><p>Please check back shortly!</p>";
+  }
+
+  // Photos: try .jpg, then .jpeg, then .png; hide if none found (placeholder shows instead)
+  document.querySelectorAll("img[data-srcs]").forEach(function (img) {
+    const list = img.dataset.srcs.split(",");
+    let i = 0;
+    img.addEventListener("error", function () {
+      i++;
+      if (i < list.length) { img.src = list[i]; }
+      else { img.style.display = "none"; }
+    });
+    img.src = list[0];
+  });
+</script>
+</body>
+</html>
